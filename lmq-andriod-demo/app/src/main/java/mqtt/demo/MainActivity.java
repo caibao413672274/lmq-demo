@@ -13,15 +13,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mqttAndroidClient = new MqttAndroidClient(getApplicationContext(), Config.serverUri, Config.clientId);
-        MqttSimple mqttSimple = new MqttSimple(mqttAndroidClient);
-        mqttSimple.test();
+//        mqttAndroidClient = new MqttAndroidClient(getApplicationContext(), Config.serverUri, Config.clientId);
+//        MqttSimple mqttSimple = new MqttSimple(mqttAndroidClient);
+//        mqttSimple.test();
+        MyMqttService.startService(this); //开启服务
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mqttAndroidClient.unregisterResources();
+//        mqttAndroidClient.unregisterResources();
     }
 
 }

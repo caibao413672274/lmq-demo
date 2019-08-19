@@ -38,7 +38,7 @@ public class MqttSimple {
         });
 
         MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-        mqttConnectOptions.setConnectionTimeout(3000);
+        mqttConnectOptions.setConnectionTimeout(10);
         mqttConnectOptions.setKeepAliveInterval(90);
         mqttConnectOptions.setAutomaticReconnect(true);
         mqttConnectOptions.setCleanSession(true);
@@ -47,8 +47,8 @@ public class MqttSimple {
             // 参考 https://help.aliyun.com/document_detail/54225.html
 
             // Signature 方式
-            mqttConnectOptions.setUserName("Signature|" + Config.accessKey + "|" + Config.instanceId);
-            mqttConnectOptions.setPassword(Tool.macSignature(Config.clientId, Config.secretKey).toCharArray());
+            mqttConnectOptions.setUserName("test0001");
+            mqttConnectOptions.setPassword("12345678".toCharArray());
 
             /**
              * Token方式
